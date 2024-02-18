@@ -1,7 +1,7 @@
 {
   "name": "websocket-server",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "build/main.js",
   "license": "MIT",
   "dependencies": {
     "@types/ws": "^8.5.10",
@@ -13,6 +13,6 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
     "start": "node ./build/main",
-    "build": "tsc"
+    "build": "yarn tsc"
   }
 }
