@@ -1,7 +1,7 @@
 import { WebSocketServer } from 'ws';
 
 const ws = new WebSocketServer({
-    port:8080
+    port: 4000
 });
 
 export interface Music {
