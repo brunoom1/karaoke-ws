@@ -17,6 +17,6 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
     "start": "node ./build/main",
-    "build": "tsc"
+    "build": "yarn tsc"
   }
 }
