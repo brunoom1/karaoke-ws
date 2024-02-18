@@ -1,6 +1,8 @@
 import { WebSocketServer } from 'ws';
 
-const ws = new WebSocketServer();
+const ws = new WebSocketServer({
+    port:8080
+});
 
 export interface Music {
     videoId: string;
