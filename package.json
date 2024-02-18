@@ -13,6 +13,6 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
     "start": "node ./build/main",
-    "build": "./node_modules/.bin/tsc"
+    "build": "node ./node_modules/.bin/tsc"
   }
 }
