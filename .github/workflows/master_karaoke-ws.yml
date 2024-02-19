@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: '20.x'
 
+      - name: Install scp
+        run: apt install scp -y
+
       - name: npm install, build, and test
         run: |
           npm install
