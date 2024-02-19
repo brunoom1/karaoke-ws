@@ -50,14 +50,15 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      - name: Create a file pem to connect vm
+        run: echo ${{ secrects.VMPEMPRIVATEKEY }} > key.pem && chmod 400 key.pem
 
-      - name: 'Deploy to Azure Web App'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'karaoke-ws'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3BE0746CF93B4683A31F69F194C9897D }}
-          package: .
+      - name: Send file release.zip to vm
+        run: scp release.zip azureuser@20.42.85.210:/home/azureuser/ws-release.zip
+
+      - name: Unzip file in VM
+        run: ssh azureuser@20.42.85.210 unzip /home/azureuser/ws-release.zip /home/azureuser/app-ws
+
+      - name: Start service 
+        run: ssh azureuser@20.42.85.210 node /home/azureuser/app-ws/build/main.js >> /dev/null &
+        
