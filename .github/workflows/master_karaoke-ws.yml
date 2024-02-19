@@ -69,4 +69,4 @@ jobs:
             command:
               rm /home/azureuser/ws-app -rf &&
               mkdir /home/azureuser/ws-app &&
-              cd /home/azureuser/ws-app && unzip /home/azureuser/ws-release.zip -x && yarn start
+              cd /home/azureuser/ws-app && unzip /home/azureuser/ws-release.zip -x && yarn start > /dev/null &
