@@ -68,5 +68,5 @@ jobs:
             port: 22
             command:
               rm /home/azureuser/ws-app -rf &&
-              unzip /home/azureuser/ws-release.zip /home/azureuser/ws-app &&
-              cd /home/azureuser/ws-app && yarn start
+              mkdir /home/azureuser/ws-app &&
+              cd /home/azureuser/ws-app && unzip /home/azureuser/ws-release.zip -x && yarn start
