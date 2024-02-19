@@ -63,7 +63,7 @@ jobs:
         uses: D3rHase/ssh-command-action@v0.2.2
         with:
             user: azureuser
-            private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+            private_key: ${{ secrets.VMPEMPRIVATEKEY }}
             host: 20.42.85.210
             port: 22
             command:
