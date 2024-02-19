@@ -67,9 +67,9 @@ jobs:
             host: 20.42.85.210
             port: 22
             command:
-              rm /home/azureuser/ws-app -rf &&
-              mkdir /home/azureuser/ws-app &&
-              cd /home/azureuser/ws-app && 
-              unzip /home/azureuser/ws-release.zip -x &&
-              kill $(ps aux | grep './build/main' | awk '{print $2}') &&
+              rm /home/azureuser/ws-app -rf || true &&
+              mkdir /home/azureuser/ws-app || true &&
+              cd /home/azureuser/ws-app || true && 
+              unzip /home/azureuser/ws-release.zip -x || true &&
+              kill $(ps aux | grep './build/main' | awk '{print $2}') || true &&
               yarn start > /dev/null &
