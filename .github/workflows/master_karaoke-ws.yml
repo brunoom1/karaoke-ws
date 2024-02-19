@@ -51,7 +51,7 @@ jobs:
           name: node-app
 
       - name: Create a file pem to connect vm
-        run: echo ${{ secrects.VMPEMPRIVATEKEY }} > key.pem && chmod 400 key.pem
+        run: echo ${{ secrets.VMPEMPRIVATEKEY }} > key.pem && chmod 400 key.pem
 
       - name: Send file release.zip to vm
         run: scp release.zip azureuser@20.42.85.210:/home/azureuser/ws-release.zip
