@@ -59,14 +59,14 @@ jobs:
           username: azureuser
           key: ${{ secrets.VMPEMPRIVATEKEY }}
 
-      - name: remote_ssh_commands
-        uses: Sithi5/remote-ssh-commands-action@1.1.2
+      - name: SSH Command
+        uses: D3rHase/ssh-command-action@v0.2.2
         with:
-            SSH_USER: azureuser
-            SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            SSH_HOST: 20.42.85.210
-            SSH_PORT: 22
-            SSH_REMOTE_COMMANDS:
-              rm /home/azureuser/ws-app -rf;
-              unzip /home/azureuser/ws-release.zip /home/azureuser/ws-app;
+            user: azureuser
+            private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+            host: 20.42.85.210
+            port: 22
+            command:
+              rm /home/azureuser/ws-app -rf &&
+              unzip /home/azureuser/ws-release.zip /home/azureuser/ws-app &&
               cd /home/azureuser/ws-app && yarn start
